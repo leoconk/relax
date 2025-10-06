@@ -1,2 +1,2 @@
-web: gunicorn config.wsgi:player
-release: py manage.py migrate
+release: python manage.py migrate
+web: bash -c "python manage.py collectstatic --noinput && gunicorn config.wsgi:application
