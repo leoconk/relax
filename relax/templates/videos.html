@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Videos - Relax</title>
+    <style>
+        body{font-family:Arial,Helvetica,sans-serif;background:#eef;padding:2rem}
+        .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1rem}
+        .card{background:#fff;padding:1rem;border-radius:6px}
+        video{width:100%;height:auto;background:#000}
+    </style>
+</head>
+<body>
+    <a href="{% url 'home' %}">← Home</a>
+    <h1>Videos</h1>
+    {% if videos %}
+        <div class="grid">
+            {% for v in videos %}
+                <div class="card">
+                    <h3>{{ v.title }}</h3>
+                    <video controls>
+                        <source src="{{ v.file.url }}" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>No videos available.</p>
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Esto es un titulo</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f0f7f5; color: #123; padding: 2rem; }
+        header { display:flex; justify-content:space-between; align-items:center }
+        nav a { margin-left: 1rem; }
+        main { margin-top: 2rem }
+    </style>
+</head>
+<body>
+<h1>obvio ésto no es algo para tomar de manera apresurada, pero no quiero hacerla larga,
+resumiendo, ésto es una página para conectar un poco con uno mismo</h1>
+    {% if user.is_authenticated %}
+        <p><a href="{% url 'pagina4' %}">click</a></p>
+    {% endif %}
+</html>
